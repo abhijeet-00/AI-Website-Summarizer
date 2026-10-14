@@ -13,15 +13,15 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class GroqAISumarrizerService implements AISumarrizerService {
+public class GroqAISummarizerService implements AISummarizerService {
     private final RestTemplate restTemplate;
     private final static String GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
     private final static String GROQ_API_KEY = System.getenv("GROQ_API_KEY");
-    public GroqAISumarrizerService(RestTemplateBuilder restTemplateBuilder) {
+    public GroqAISummarizerService(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
     }
     @Override
-    public String sumarize(String url) {
+    public String summarize(String url) {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setBearerAuth(GROQ_API_KEY);
         Map<String, Object> request = new HashMap<>();
