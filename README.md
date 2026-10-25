@@ -1,18 +1,24 @@
 # Website Summarizer
 
-A simple Spring Boot app that takes a website URL and returns a short AI-generated summary.
+A learning-focused Spring Boot project for building AI-powered website understanding features.
 
-## What it can do
-- Accepts a URL through a REST endpoint
-- Sends the URL to Groq's LLM API
-- Generates a quick summary of the website in a few lines
-- Works as a lightweight backend for AI-powered website understanding
+## What it does today
+- Exposes a simple REST endpoint to summarize a URL
+- Sends the URL to a Groq-hosted LLM
+- Returns a short AI-generated summary
 
-Example endpoint:
+Example:
 
 GET /summarizer?url=https://example.com
 
-This returns a summarized response based on the provided website.
+## Current architecture
+This project is intentionally simple and acts as a starting point for learning AI integration in Java.
+
+Current flow:
+- Spring Boot controller receives a URL
+- AI service calls Groq Chat Completions API
+- Model generates a summary
+- Response is returned directly to the client
 
 ## Tech stack
 - Java 17
@@ -21,18 +27,29 @@ This returns a summarized response based on the provided website.
 
 ## Setup
 1. Clone the project
-2. Set the environment variable:
+2. Set your environment variable:
    `GROQ_API_KEY=your_api_key`
 3. Run:
    `./mvnw spring-boot:run`
 
-## Future scope
-- Add a simple frontend for entering URLs and viewing results
-- Improve summary quality by scraping page content before sending it to the AI
-- Support multi-page website summaries and content extraction
-- Add user history, saved summaries, and favorites
-- Add language selection, tone options, and summary length controls
-- Add async processing for large or slow websites
-- Add validation for invalid URLs and error handling improvements
+## Learning roadmap
+This repo is meant to evolve step by step toward a real AI application pipeline.
 
-This is a good starting point for an AI-powered website summarization tool and can be expanded into a more complete research or productivity app.
+Planned phases:
+- Improve URL validation and error handling
+- Extract and clean real webpage text instead of sending only the URL
+- Add prompt templates and structured responses
+- Add text chunking and retrieval
+- Add embeddings and vector storage
+- Build a simple RAG-based Q&A flow
+- Add async job processing and observability
+
+## Why this project matters
+This is not a production AI system yet. It is a practical sandbox for learning:
+- LLM API integration in Java
+- prompting and output control
+- grounding answers in real content
+- retrieval-based AI patterns
+- how AI systems are designed in real projects
+
+This app is a good base for learning how to move from a single LLM call to a real AI workflow.
